@@ -19,9 +19,10 @@
 team_to_dict = {}
 
 def find_player(name, team, number):
+  
   player_exists = any(name in dictionary.values() for dictionary in team)
   if not player_exists: 
-      team_to_dict[team].append({
+      team.append({
         "numero": number,
         "nombre": name,
         "cantidad_pases": 0,
@@ -29,13 +30,14 @@ def find_player(name, team, number):
         "pases_mal": 0,
         "porcentaje": 0,
      })
+  
   return [item for item in team if item.get("nombre") == name][0]
 
 
-def savePlayer(team, number, name, pass_status, time):
+def savePlayer(team, number, name, pass_status):
   if team not in team_to_dict:
     team_to_dict[team] = []
-      
+  
   target_player = find_player(name, team_to_dict[team], number)
 
   for player in team_to_dict[team]:
@@ -48,14 +50,23 @@ def savePlayer(team, number, name, pass_status, time):
         player["porcentaje"] = round((player["pases_bien"] * 100) / player["cantidad_pases"], 2)
 
 
+def sort_players_by_pass_efficiency():
+   for team in team_to_dict:
+      team_to_dict[team] = sorted(team_to_dict[team], key=lambda x: x["porcentaje"], reverse=True)
+
 def contar_pases_y_efectividad():
   with open("pases.txt", 'r') as file:
       for i in file:
-          team, number, name, pass_status, time = i.split(';')
-          savePlayer(team, number, name, pass_status, time)
-
+          team, number, name, pass_status, _ = i.split(';')
+          savePlayer(team, number, name, pass_status)
+  
+  sort_players_by_pass_efficiency()
   return [{key: value} for key, value in team_to_dict.items()]
 
+
+
+
 contar_pases_y_efectividad()
+
 
 

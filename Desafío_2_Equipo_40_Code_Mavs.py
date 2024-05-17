@@ -52,7 +52,7 @@ def savePlayer(team, number, name, pass_status):
 
 def sort_players_by_pass_efficiency():
    for team in team_to_dict:
-      team_to_dict[team] = sorted(team_to_dict[team], key=lambda x: x["porcentaje"], reverse=True)
+      team_to_dict[team] = sorted(team_to_dict[team], key=lambda player: player["porcentaje"], reverse=True)
 
 def contar_pases_y_efectividad():
   with open("pases.txt", 'r') as file:
@@ -67,6 +67,7 @@ def contar_pases_y_efectividad():
 
 
 contar_pases_y_efectividad()
+
 
 
 

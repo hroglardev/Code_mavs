@@ -42,7 +42,7 @@ def find_player(name, team, number):
     number (string) número de camiseta del jugador.
 
   Función para buscar un jugador con la variable name y si este no existe lo crea en el diccionario del equipo correspondiente con sus estadisticas inicializadas en 0.
-  La función chequea si alguno de los valores de las posiciones de las listas del diccionario pasado por parametro contiene un nombre que coincida con el nombre pasado por parametro.
+  La función chequea si alguna de las las posiciones de las listas del diccionario pasado por parametro contiene un nombre que coincida con el nombre pasado por parametro.
 
   Valor de retorno:
     {numero: number, nombre: name, cantidad_pases: 0 o valor actual, pases_bien: 0 o valor actual, pases_mal: 0 o valor actual, porcentaje: 0 o valor actual}

@@ -67,7 +67,7 @@ teams = [
 ]
 
 
-records_amount = 30
+records_amount = 50000
 
 def generate_pass_status ():
   '''

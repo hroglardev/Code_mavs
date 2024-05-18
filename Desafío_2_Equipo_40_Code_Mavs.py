@@ -50,7 +50,7 @@ def find_player(name, team, number):
     Diccionario
   '''
 
-  player_exists = any(name in dictionary.values() for dictionary in team)
+  player_exists = any(player.get("nombre") == name for player in team)
   if not player_exists: 
     team.append({
       "numero": number,
@@ -60,7 +60,7 @@ def find_player(name, team, number):
       "pases_mal": 0,
       "porcentaje": 0,
     })
-  
+
   return [item for item in team if item.get("nombre") == name][0]
 
 def save_player(name, team, number, pass_status):

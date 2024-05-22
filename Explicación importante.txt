@@ -1,0 +1,4 @@
+Teams tiene un bug que renombra los archivos y les añade un número si se suben en multiples ocasiones.
+Por favor renombrar los archivos quitandoles el ultimo numero para que pueda correrse bien el programa.
+
+https://answers.microsoft.com/en-us/msteams/forum/all/why-is-teams-renaming-the-files-that-im-sending/4877235d-fe29-4181-bbb5-26456d5b0505
